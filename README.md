@@ -45,6 +45,8 @@ route53_hostedzone.tf: Criação da zona privada, associação com as três VPCs
 
 sg.tf: Arquivo destinado à criação dos Security Groups (SGs) e regras, para uso nas EC2 e no endpoint do SQS.
 
+sqs.tf: sqs.tf: Arquivo que cria a fila do SQS
+
 tgw.tf: Criação do Transit Gateway e associação com as VPCs.
 
 variables.tf: Define as variáveis utilizadas no projeto.
