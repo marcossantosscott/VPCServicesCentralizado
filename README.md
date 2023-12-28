@@ -53,9 +53,9 @@ sg.tf: Arquivo destinado à criação dos Security Groups (SGs) e regras, para u
 
 sqs.tf: Arquivo que cria a fila do SQS
 
-tgw.tf: Criação do Transit Gateway e associação com as VPCs.
+tgw.tf: Criação do Transit Gateway e tabela de rotas customizada.
 
-tgw_attach.tf: Attachment do Transit Gateway com as VPCs.
+tgw_attach.tf: Attachment do Transit Gateway com as VPCs. Associação e propagação das rotas.
 
 variables.tf: Define as variáveis utilizadas no projeto.
 
