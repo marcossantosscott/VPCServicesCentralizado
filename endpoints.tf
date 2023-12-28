@@ -2,7 +2,7 @@ resource "aws_vpc_endpoint" "endpoint_sqs" {
   vpc_id             = aws_vpc.vpc_services.id
   service_name       = var.sqs-service-name
   vpc_endpoint_type  = "Interface"
-  security_group_ids = [aws_security_group.sg_endpoints.id]
+  security_group_ids = [aws_security_group.sg-endpoints.id]
   subnet_ids         = tolist(aws_subnet.private_subnets_services[*].id)
   tags = {
     Owner     = "shared-services"
@@ -21,7 +21,7 @@ resource "aws_vpc_endpoint" "endpoint_ssm" {
   vpc_id             = aws_vpc.vpc_services.id
   service_name       = var.ssm_service_name
   vpc_endpoint_type  = "Interface"
-  security_group_ids = [aws_security_group.sg_endpoints.id]
+  security_group_ids = [aws_security_group.sg-endpoints.id]
   subnet_ids         = tolist(aws_subnet.private_subnets_services[*].id)
   tags = {
     Owner     = "shared-services"
@@ -35,7 +35,7 @@ resource "aws_vpc_endpoint" "endpoint_ssm_messages" {
   vpc_id             = aws_vpc.vpc_services.id
   service_name       = var.ssm_service_name_messages
   vpc_endpoint_type  = "Interface"
-  security_group_ids = [aws_security_group.sg_endpoints.id]
+  security_group_ids = [aws_security_group.sg-endpoints.id]
   subnet_ids         = tolist(aws_subnet.private_subnets_services[*].id)
   tags = {
     Owner     = "shared-services"
@@ -50,7 +50,7 @@ resource "aws_vpc_endpoint" "endpoint_ec2" {
   vpc_id             = aws_vpc.vpc_services.id
   service_name       = var.ec2_service_name
   vpc_endpoint_type  = "Interface"
-  security_group_ids = [aws_security_group.sg_endpoints.id]
+  security_group_ids = [aws_security_group.sg-endpoints.id]
   subnet_ids         = tolist(aws_subnet.private_subnets_services[*].id)
   tags = {
     Owner     = "shared-services"
