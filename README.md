@@ -43,7 +43,7 @@ modules/transit_gateway/tgw.tf: Responsável pela criação do TGW e export do i
 
 ec2.tf: Contém a configuração das instâncias que vão ser criadas para cada VPC. Para simplificar, deixei todas com as mesmas configurações.
 
-endpoints.tf: Criação do VPC endpoint. No meu caso específico, criei o de SQS para testar o envio de mensagens para a fila.
+endpoints.tf: Criação dos VPCs endpoint. No meu caso específico, criei o de SQS para testar o envio de mensagens para a fila. E outro para uso do session manager.
 
 provider.tf: Arquivo com a configuração do provider e a região.
 

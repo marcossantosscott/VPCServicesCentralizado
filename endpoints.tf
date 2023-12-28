@@ -50,7 +50,7 @@ resource "aws_vpc_endpoint" "endpoint_ec2" {
   vpc_id             = aws_vpc.vpc_services.id
   service_name       = var.ec2_service_name
   vpc_endpoint_type  = "Interface"
-  security_group_ids = [aws_security_group.sg_ec2_ingress.id]
+  security_group_ids = [aws_security_group.sg_endpoints.id]
   subnet_ids         = tolist(aws_subnet.private_subnets_services[*].id)
   tags = {
     Owner     = "shared-services"
