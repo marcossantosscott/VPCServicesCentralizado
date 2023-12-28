@@ -35,7 +35,7 @@ terraform destroy -auto-approve
 
 Tive que usar o TransitGateway como um módulo pois estava encontrando erros quando criava as rotas privadas das vpcs que apontavam para o TGW, informando que o transit gateway não existia.
 
-Meu maior problema de fato foi mexer com o git que nãoa ceita o push dos arquivos rsrs
+Meu maior problema de fato, foi mexer com o git que não aceitava o push dos arquivos rsrs
 
 Estrutura do Projeto
 
