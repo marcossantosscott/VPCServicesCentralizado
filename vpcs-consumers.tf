@@ -36,22 +36,22 @@ resource "aws_subnet" "public_subnets_consumer1" {
 
 resource "aws_route_table" "rt-private-consumer1" {
   vpc_id = aws_vpc.vpc_consumer1.id
-  depends_on = [aws_ec2_transit_gateway.transit_gateway]
+  #depends_on = [module.transit_gateway.transit_gateway_id]
   route {
     cidr_block = var.vpc_cidr_consumer1
     gateway_id = "local"
   }
   route {
     cidr_block = var.vpc_cidr_consumer2
-    gateway_id = aws_ec2_transit_gateway.transit_gateway.id
+    transit_gateway_id = module.transit_gateway.transit_gateway_id
   }
   route {
     cidr_block = var.vpc_cidr_services
-    gateway_id = aws_ec2_transit_gateway.transit_gateway.id
+    transit_gateway_id = module.transit_gateway.transit_gateway_id
   }
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_ec2_transit_gateway.transit_gateway.id
+    transit_gateway_id = module.transit_gateway.transit_gateway_id
   }
   tags = {
     Name = "private-routetable-consumer1"
@@ -138,7 +138,8 @@ resource "aws_subnet" "public_subnets_consumer2" {
 
 resource "aws_route_table" "rt-private-consumer2" {
   vpc_id = aws_vpc.vpc_consumer2.id
-  depends_on = [aws_ec2_transit_gateway.transit_gateway]
+  #depends_on = [module.transit_gateway.transit_gateway_id]
+  
 
   route {
     cidr_block = var.vpc_cidr_consumer2
@@ -146,15 +147,15 @@ resource "aws_route_table" "rt-private-consumer2" {
   }
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_ec2_transit_gateway.transit_gateway.id
+    transit_gateway_id = module.transit_gateway.transit_gateway_id
   }
   route {
     cidr_block = var.vpc_cidr_consumer1
-    gateway_id = aws_ec2_transit_gateway.transit_gateway.id
+    transit_gateway_id = module.transit_gateway.transit_gateway_id
   }
   route {
     cidr_block = var.vpc_cidr_services
-    gateway_id = aws_ec2_transit_gateway.transit_gateway.id
+    transit_gateway_id = module.transit_gateway.transit_gateway_id
   }
   tags = {
     Name = "private-routetable-consumer2"

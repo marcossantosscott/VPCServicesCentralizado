@@ -33,7 +33,11 @@ Quando você terminar de usar a infraestrutura, é recomendável destruí-la par
 
 terraform destroy -auto-approve
 
+Tive que usar o TransitGateway como um módulo pois estava encontrando erros quando criava as rotas privadas das vpcs que apotavam para o TGW, informando que o recuros não existia.
+
 Estrutura do Projeto
+
+modules/transit_gateway/tgw.tf: Responsável pela criação do TGW e export do id do recurso.
 
 ec2.tf: Contém a configuração das instâncias que vão ser criadas para cada VPC. Para simplificar, deixei todas com as mesmas configurações.
 
@@ -45,13 +49,14 @@ route53_hostedzone.tf: Criação da zona privada, associação com as três VPCs
 
 sg.tf: Arquivo destinado à criação dos Security Groups (SGs) e regras, para uso nas EC2 e no endpoint do SQS.
 
-sqs.tf: sqs.tf: Arquivo que cria a fila do SQS
+sqs.tf: Arquivo que cria a fila do SQS
 
 tgw.tf: Criação do Transit Gateway e associação com as VPCs.
+
+tgw_attach.tf: Attachment do Transit Gateway com as VPCs.
 
 variables.tf: Define as variáveis utilizadas no projeto.
 
 vpc-services.tf: Criação da VPC de Services, que é a VPC centralizada na arquitetura, e seus recursos relacionados.
 
 vpcs-consumers.tf: Criação das VPCs de Consumers, que são as VPCs centralizadas na arquitetura, e seus recursos relacionados.
-
