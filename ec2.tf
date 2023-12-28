@@ -20,6 +20,7 @@ resource "aws_instance" "ec2_services" {
   subnet_id = aws_subnet.private_subnets_services[0].id
   iam_instance_profile = var.instance_profile
   security_groups = [aws_security_group.sg-ec2-services.id]
+  key_name = "lab-vpcendpoint"
   tags = {
     Name = "services-ec2"
   }
@@ -31,6 +32,7 @@ resource "aws_instance" "ec2_consumer1" {
   subnet_id = aws_subnet.private_subnets_consumer1[0].id
   iam_instance_profile = var.instance_profile
   security_groups = [aws_security_group.sg-ec2-consumer1.id]
+  key_name = "lab-vpcendpoint"
   tags = {
     Name = "consumer1-ec2"
   }
@@ -42,6 +44,7 @@ resource "aws_instance" "ec2_consumer2" {
   subnet_id = aws_subnet.private_subnets_consumer2[1].id
   iam_instance_profile = var.instance_profile
   security_groups = [aws_security_group.sg-ec2-consumer2.id]
+  key_name = "lab-vpcendpoint"
   tags = {
     Name = "consumer2-ec2"
   }
