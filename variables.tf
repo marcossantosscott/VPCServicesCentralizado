@@ -21,6 +21,25 @@ variable "sqs-service-name" {
   default = "com.amazonaws.us-east-1.sqs"
 }
 
+variable "ssm_service_name" {
+  description = "Nome do serviço SSM"
+  type    = string
+  default = "com.amazonaws.us-east-1.ssm"
+}
+
+variable "ssm_service_name_messages" {
+  description = "Nome do serviço SSM messages"
+  type    = string
+  default = "com.amazonaws.us-east-1.ssmmessages"
+}
+
+variable "ec2_service_name" {
+  description = "Nome do serviço EC2"
+  type    = string
+  default = "com.amazonaws.us-east-1.ec2"
+}
+
+
 variable "instance_type" {
   type    = string
   default = "t3a.micro"

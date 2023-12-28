@@ -1,7 +1,7 @@
 # Criação do Security Group
-resource "aws_security_group" "sg_sqs_ingress" {
-  name        = "securitygroup-sqs-ingress"
-  description = "Security Group para o endpoint de entrada do SQS"
+resource "aws_security_group" "sg_endpoints" {
+  name        = "securitygroup-endpoints"
+  description = "Security Group para os endpoints de serviço"
   vpc_id      = aws_vpc.vpc_services.id
 
   ingress {
