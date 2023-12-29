@@ -68,3 +68,4 @@ output "ssm_endpoint_dns" {
 output "ec2_endpoint_dns" {
   value = aws_vpc_endpoint.endpoint_ec2.dns_entry
 }
+

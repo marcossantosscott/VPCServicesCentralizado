@@ -56,6 +56,14 @@ resource "aws_route_table" "private-services" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_nat_gateway.nat-services.id
   }
+  route {
+    cidr_block = var.vpc_cidr_consumer1
+    transit_gateway_id = module.transit_gateway.transit_gateway_id
+  }
+  route {
+    cidr_block = var.vpc_cidr_consumer2
+    transit_gateway_id = module.transit_gateway.transit_gateway_id
+  }
   tags = {
     Name = "private-routetable-services"
   }
